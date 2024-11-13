@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatic Traffic Control System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            border: 2px solid #000;
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 900px;
+            margin-top: 50px;
+        }
+        .upload-section, .traffic-section {
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            padding: 20px;
+            height: 300px;
+        }
+        .image-box {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f9f9f9;
+        }
+        .traffic-light {
+            width: 70px;
+            margin: auto;
+        }
+        .traffic-light button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin: 10px 0;
+            border: none;
+        }
+        .red-light { background-color: red; }
+        .yellow-light { background-color: yellow; }
+        .green-light { background-color: green; }
+    </style>
+</head>
+<body>
+
+<div class="container text-center">
+    <h3>Automatic Traffic Control System</h3>
+    <div class="row mt-4">
+        <!-- Upload Section -->
+        <div class="col-md-6 upload-section">
+            <button class="btn btn-primary mb-3">Upload Photo</button>
+            <button class="btn btn-primary mb-3">Upload Video</button>
+            <div class="image-box">Image/Photo</div>
+        </div>
+        
+        <!-- Traffic Light Section -->
+        <div class="col-md-6 traffic-section">
+            <div class="traffic-light">
+                <button class="red-light">Stop</button>
+                <button class="yellow-light">Wait</button>
+                <button class="green-light">Go</button>
+            </div>
+            <div class="ambulance-detection mt-3">
+                <label for="ambulance-status" class="form-label">Ambulance Detected:</label>
+                <input type="text" id="ambulance-status" class="form-control" placeholder="Yes/No">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
