@@ -3,74 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Automatic Traffic Control System</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .container {
-            border: 2px solid #000;
-            border-radius: 15px;
-            padding: 20px;
-            max-width: 900px;
-            margin-top: 50px;
-        }
-        .upload-section, .traffic-section {
-            border: 1px solid #ccc;
-            border-radius: 15px;
-            padding: 20px;
-            height: 300px;
-        }
-        .image-box {
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            height: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #f9f9f9;
-        }
-        .traffic-light {
-            width: 70px;
-            margin: auto;
-        }
-        .traffic-light button {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin: 10px 0;
-            border: none;
-        }
-        .red-light { background-color: red; }
-        .yellow-light { background-color: yellow; }
-        .green-light { background-color: green; }
-    </style>
+    <title>Automatic Traffic Control System using AI</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="container">
+        <h1>Automatic Traffic Control System using AI</h1>
+        <input class="choose-btn" type="file" id="fileInput" accept="image/,video/" onchange="showPreview()" />
+        <button class="upload-btn" onclick="uploadFile()">Find Emergency Vehicles</button>
+        <button class="reset-btn" onclick="resetTrafficLight()">Reset Traffic Signal</button>
 
-<div class="container text-center">
-    <h3>Automatic Traffic Control System</h3>
-    <div class="row mt-4">
-        <!-- Upload Section -->
-        <div class="col-md-6 upload-section">
-            <button class="btn btn-primary mb-3">Upload Photo</button>
-            <button class="btn btn-primary mb-3">Upload Video</button>
-            <div class="image-box">Image/Photo</div>
+        <!-- Detected Status with Yes/No Buttons -->
+        <div class="detected-container">
+            <h3><span class="detected-text">Ambulance Detected:</span></h3>
+            <div id="yesButton" class="detected-btn">Yes</div>
+            <div id="noButton" class="detected-btn">No</div>
         </div>
-        
-        <!-- Traffic Light Section -->
-        <div class="col-md-6 traffic-section">
-            <div class="traffic-light">
-                <button class="red-light">Stop</button>
-                <button class="yellow-light">Wait</button>
-                <button class="green-light">Go</button>
+
+        <!-- Preview and Traffic Light Side by Side -->
+        <div class="preview-signal-container">
+            <!-- Thumbnail Box for Image/Video Preview -->
+            <div class="thumbnail-box">
+                <img id="imagePreview" class="thumbnail" alt="Image Preview">
+                <video id="videoPreview" class="thumbnail" controls></video>
             </div>
-            <div class="ambulance-detection mt-3">
-                <label for="ambulance-status" class="form-label">Ambulance Detected:</label>
-                <input type="text" id="ambulance-status" class="form-control" placeholder="Yes/No">
+
+            <!-- Traffic Light Display -->
+            <div class="traffic-light">
+                <div id="red" class="light"></div>
+                <div id="yellow" class="light"></div>
+                <div id="green" class="light"></div>
             </div>
         </div>
     </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

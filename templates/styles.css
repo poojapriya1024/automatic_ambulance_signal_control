@@ -1,51 +1,137 @@
-.container {
-    border: 2px solid #000;
-    border-radius: 15px;
-    padding: 20px;
-    max-width: 900px;
-    margin-top: 50px;
-}
-.upload-section, .traffic-section {
-    border: 1px solid #ccc;
-    border-radius: 15px;
-    padding: 20px;
-    height: 300px;
-}
-.image-box {
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    height: 150px;
+/* Basic styling for buttons and layout */
+body {
     display: flex;
-    align-items: center;
     justify-content: center;
-    background-color: #f9f9f9;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(to right, #648bce, #cf53dd);
+    font-family: Arial, sans-serif;
+    color: white;
 }
 
-/* Traffic Light Styling */
-.traffic-light {
-    width: 90px;
-    height: 250px;
-    background-color: #333; /* Dark background for the casing */
-    border-radius: 20px;
-    padding: 15px;
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 70%;
+}
+
+.upload-btn, .reset-btn, .choose-btn {
+    background-color: #583bbf;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth color and scale transition */
+}
+
+.upload-btn:hover, .reset-btn:hover, .choose-btn:hover {
+    background-color: #b536ae;
+    transform: scale(1.05); /* Slightly enlarges the button on hover */
+}
+
+/* Flex layout for preview and signal side by side */
+.preview-signal-container {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: space-around;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Shadow effect for realism */
+    margin-top: 20px;
+}
+
+/* Thumbnail styling */
+.thumbnail-box {
+    width: 50%;
+    height: 300px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    overflow: hidden;
+}
+
+.thumbnail {
+    width: 100%;
+    height: 100%;
+    display: none;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+/* Traffic light styling */
+.traffic-light {
+    width: 65px;
+    height: 250px;
+    background-color: #333;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.traffic-light div {
+    padding: 9px;
+    margin-bottom:17px;
+    margin-top: 7px;
 }
 
 .light {
-    width: 60px;
-    height: 60px;
+    width: 30px;
+    height: 30px;
+    margin: 5px auto;
+    background-color: grey;
     border-radius: 50%;
-    background-color: #e0e0e0; /* Initial colorless state */
-    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5); /* Inner shadow for a realistic look */
-    border: 2px solid #333; /* Dark border for embedded effect */
-    cursor: pointer;
-    transition: background-color 0.3s ease; /* Smooth color transition */
+    transition: background-color 0.5s;
 }
 
-.red { background-color: red; }
-.yellow { background-color: yellow; }
-.green { background-color: green; }
+#red {
+    background-color: red;
+}
+
+#yellow {
+    background-color: rgb(210, 197, 197);
+}
+
+#green {
+    background-color: rgb(210, 197, 197);
+}
+
+/* Detected status container */
+.detected-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.detected-text {
+    font-size: 1.2em;
+    margin-right: 10px;
+}
+
+.detected-btn {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    background-color: #333;
+    transition: background-color 0.3s;
+}
+
+.detected-btn.lit {
+    background-color: #28a745;
+}
+
+.detected-btn.off {
+    background-color: #dc3545;
+}
