@@ -16,17 +16,23 @@
             <div class="col-md-6 upload-section">
                 <button class="btn btn-primary mb-3">Upload Photo</button>
                 <button class="btn btn-primary mb-3">Upload Video</button>
+                <button class="btn btn-primary mb-3">Find Emergency Vehicles</button>
                 <div class="image-box">Image/Photo</div>
             </div>
             
             <!-- Traffic Light Section -->
-            <div class="col-md-6 traffic-section">
+            <div class="col-md-6 traffic-section d-flex justify-content-between align-items-center">
+                <!-- Traffic Light Section -->
                 <div class="traffic-light">
                     <div id="red-light" class="light" onclick="setLight('red')"></div>
                     <div id="yellow-light" class="light" onclick="setLight('yellow')"></div>
                     <div id="green-light" class="light" onclick="setLight('green')"></div>
                 </div>
+                <div>
+                    <h5>Ambulance Detected: <span id="emergency-status">Yes/No</span></h5>
+                </div>
             </div>
+            
         </div>
     </div>
     
