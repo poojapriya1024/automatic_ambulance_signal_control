@@ -56,12 +56,14 @@ function updateDetectionResult(result) {
     const noButton = document.getElementById('noButton');
     const redLight = document.getElementById('red');
     const greenLight = document.getElementById('green');
+    const greenSound = document.getElementById('greenSound');
 
     if (result === 'yes') {
         yesButton.style.backgroundColor = 'green';
         noButton.style.backgroundColor = '';
         greenLight.style.backgroundColor = 'green';
         redLight.style.backgroundColor = 'rgb(210, 197, 197)';
+        greenSound.play();
     } else {
         noButton.style.backgroundColor = 'red';
         yesButton.style.backgroundColor = '';
