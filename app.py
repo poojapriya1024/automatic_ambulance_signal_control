@@ -1,5 +1,7 @@
 from flask import Flask, request, jsonify, render_template
-import os 
+import os
+from ambulance_detection import detect_emergency_vehicles  # Import the detect_emergency_vehicles function
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -15,17 +17,19 @@ def upload_file():
     if file.filename == '':
         return jsonify({'error': 'No file selected'})
 
+    # Save the uploaded file
     current_directory = os.getcwd()
     file_path = os.path.join(current_directory, file.filename)
     file.save(file_path)
 
+    # Call the detect_emergency_vehicles function from object_detection.py
     result = detect_emergency_vehicles(file_path)
 
-    return jsonify({'detected': result})
-
-def detect_emergency_vehicles(file_path):
-    # Replace with actual logic
-    return "yes"  # Assume ambulance detected
+    # Return "yes" or "no" based on the result
+    if result == "yes":
+        return jsonify({'detected': 'yes'})
+    else:
+        return jsonify({'detected': 'no'})
 
 if __name__ == '__main__':
     app.run(debug=True)
